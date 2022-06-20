@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Dojos</title>
+</head>
+
+<body>
+    <div style="display: flex; margin-top: 30px;"class="top">
+        <div style="height: 350px; width: 30%; margin: 0 auto; text-align: left;"class="create">
+            <h2>New Dojo</h2>
+            <form action="/dojos/create" method="POST">
+                <label for="dojo_name"> Name </label>
+                <input type="text" name="name" id="name">
+                
+                <button type="submit">Create</button>
+            </form>
+        </div>
+    
+        <div style="height: 450px; width: 30%; border: 1px solid black;  margin: 0 auto;"class="container">
+            <h2> All Dojos </h2>
+            <!-- This loop is going through our database rows and printing the dojo name by way of our attribute value -->
+            {% for dojo in dojos %}
+            <p>
+                <a href="/dojo/{{dojo.id}}"> {{dojo.dojo_name}}  </a>
+            </p>
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+
+        <a href="/ninja/new"> Add Ninja </a>
+    </div>
+
+</body>
+</html>

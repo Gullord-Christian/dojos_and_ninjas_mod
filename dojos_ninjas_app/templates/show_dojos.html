@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Show</title>
+</head>
+
+<body class="bg-dark text-light">
+    <h2>{{new_dojo.dojo_name}} Ninjas </h2>
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th> First Name </th>
+                <th> Last Name </th>
+                <th> Age </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- This loop is going through the list of ninjas that we sent via the model in the instance new_dojo -->
+            {% for ninja in new_dojo.ninjas_list: %}
+            <tr>
+                <td>{{ninja.first_name}}</td>
+                <td>{{ninja.last_name}} </td>
+                <td>{{ninja.age}} </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+<a href="/dojos/create"> Home </a>
+
+</body>
+</html>
